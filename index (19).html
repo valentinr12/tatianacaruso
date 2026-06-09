@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tatiana Caruso · Taller SER — Gestión Emocional basada en DBT</title>
+  <meta name="description" content="Aprendé a calmarte sin apagar tu sensibilidad. Taller SER: entrenamiento práctico y progresivo basado en habilidades DBT para mujeres intensas, analíticas y comprometidas con su crecimiento." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ============================================================
+       VARIABLES Y RESET
+       ============================================================ */
+    :root {
+      --bg-base: #0F1A0F;
+      --bg-alt: #141F14;
+      --bg-hero: #0A0F0A;
+      --bg-warm: #1E2E1E;
+      --bg-footer: #080F08;
+
+      --sage: #7A9E7E;
+      --sage-mid: #5C7E60;
+      --sage-light: #A8C5AC;
+      --cream: #F5EDD8;
+      --cream-soft: #FAF4E8;
+      --gold: #D4A853;
+
+      --text-main: #F5EDD8;
+      --text-sec: #A8C5AC;
+      --text-dark: #1A2E1A;
+      --border-sub: #2A3D2A;
+
+      --font-title: 'Libre Baskerville', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+      --maxw: 1150px;
+    }
+
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      font-weight: 700;
+      line-height: 1.18;
+      margin: 0 0 0.6em;
+    }
+
+    p { margin: 0 0 1.2rem; }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       UTILIDADES DE LAYOUT
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      position: relative;
+      padding: clamp(4.5rem, 9vw, 8rem) 0;
+      overflow: hidden;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+
+    .h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+
+    /* Separador en gradiente */
+    .separator {
+      width: 50%;
+      max-width: 560px;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, var(--sage), transparent);
+      border: 0;
+    }
+
+    /* Número decorativo gigante de fondo */
+    .deco-number {
+      position: absolute;
+      font-family: var(--font-title);
+      font-weight: 700;
+      opacity: 0.03;
+      line-height: 0.8;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      font-size: clamp(14rem, 36vw, 32rem);
+      color: var(--cream);
+    }
+    .deco-number.dark { color: var(--text-dark); opacity: 0.04; }
+
+    /* ============================================================
+       BOTONES CTA
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 1rem 1.7rem;
+      background: var(--sage);
+      color: #0F1A0F;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .btn:hover {
+      background: var(--sage-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(122,158,126,0.5);
+    }
+    .btn-sm { padding: 0.7rem 1.2rem; font-size: 0.92rem; }
+    .btn-invert {
+      background: #0F1A0F;
+      color: var(--cream);
+    }
+    .btn-invert:hover {
+      background: #1E2E1E;
+      box-shadow: 0 10px 30px -10px rgba(15,26,15,0.6);
+    }
+
+    /* ============================================================
+       BARRA DE PROGRESO DE LECTURA
+       ============================================================ */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage-mid), var(--sage), var(--sage-light));
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ============================================================
+       CURSOR PERSONALIZADO
+       ============================================================ */
+    #cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+      mix-blend-mode: screen;
+    }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+      border-bottom: 1px solid transparent;
+      padding: 1.2rem 0;
+    }
+    #navbar.scrolled {
+      background: rgba(10,15,10,0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-sub);
+      padding: 0.7rem 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+    }
+    .nav-brand .dot { color: var(--sage); }
+
+    /* ============================================================
+       HERO + CANVAS NEURONAS
+       ============================================================ */
+    #hero {
+      background: var(--bg-hero);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 9rem 0 5rem;
+    }
+    #neural-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: block;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+    }
+    .hero-label {
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 1.6rem;
+    }
+    #hero h1 {
+      font-size: clamp(3rem, 6vw, 6rem);
+      margin-bottom: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub {
+      color: var(--text-main);
+      font-size: 1.12rem;
+      max-width: 720px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-subsub {
+      color: var(--text-sec);
+      font-size: 1.02rem;
+      max-width: 720px;
+      margin-bottom: 1.8rem;
+    }
+    .hero-invite {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--cream);
+      max-width: 640px;
+      margin-bottom: 2.2rem;
+    }
+
+    /* Entrada escalonada del hero */
+    .reveal-stagger {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .reveal-stagger.scale {
+      transform: translateY(0) scale(0.9);
+      animation: heroScale 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .d-03 { animation-delay: 0.3s; }
+    .d-06 { animation-delay: 0.6s; }
+    .d-10 { animation-delay: 1s; }
+    .d-13 { animation-delay: 1.3s; }
+    .d-16 { animation-delay: 1.6s; }
+
+    @keyframes heroIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroScale {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ============================================================
+       SCROLL REVEAL GENÉRICO
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       SECCIÓN PROBLEMAS
+       ============================================================ */
+    #problemas { background: var(--bg-base); }
+    .problem-intro {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--cream);
+      max-width: 760px;
+      margin-bottom: 3rem;
+    }
+    .problem-list { list-style: none; margin: 0; padding: 0; }
+    .problem-item {
+      position: relative;
+      padding: 0.4rem 0 0.4rem 1.8rem;
+      margin-bottom: 2.2rem;
+      max-width: 880px;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      border-left: 3px solid var(--sage);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.3s ease;
+    }
+    .problem-item.visible { opacity: 1; transform: translateX(0); }
+    .problem-item:hover { border-left-color: var(--gold); }
+
+    /* ============================================================
+       SECCIÓN VEHÍCULO
+       ============================================================ */
+    #vehiculo {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--sage);
+    }
+    #vehiculo .copy { max-width: 800px; }
+    #vehiculo .copy p { color: var(--text-sec); }
+    #vehiculo .copy p:first-of-type { color: var(--text-main); }
+
+    /* ============================================================
+       SECCIÓN MÓDULOS — ACORDEONES
+       ============================================================ */
+    #modulos { background: var(--bg-base); }
+    .accordion-wrap { max-width: 900px; margin: 0 auto; }
+    .acc-module {
+      background: var(--bg-alt);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 1.1rem;
+      transition: background 0.4s ease, border-color 0.4s ease, filter 0.3s ease;
+      overflow: hidden;
+    }
+    .acc-module:hover { border-left-color: var(--sage-light); filter: brightness(1.12); }
+    .acc-module.open {
+      background: var(--bg-warm);
+      border-left-color: var(--gold);
+      filter: none;
+    }
+    .acc-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      text-align: left;
+      padding: 1.5rem 1.6rem;
+      cursor: pointer;
+    }
+    .acc-icon {
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--sage);
+      transition: transform 0.4s ease, color 0.4s ease;
+      line-height: 1;
+    }
+    .acc-module.open .acc-icon { transform: rotate(135deg); color: var(--gold); }
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .acc-body-inner { padding: 0 1.6rem 1.8rem; }
+    .acc-emoji { font-size: 3rem; line-height: 1; margin-bottom: 1rem; display: block; }
+    .acc-body p { color: var(--text-sec); margin-bottom: 0; max-width: 660px; }
+
+    /* ============================================================
+       SECCIÓN PRUEBA SOCIAL — CAROUSEL
+       ============================================================ */
+    #prueba { background: var(--bg-alt); }
+    .carousel { position: relative; max-width: 640px; margin: 2.5rem auto 0; }
+    .carousel-track-wrap { overflow: hidden; border-radius: 10px; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      padding: 0 0.4rem;
+      box-sizing: border-box;
+    }
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border-sub);
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(15,26,15,0.85);
+      border: 1px solid var(--border-sub);
+      color: var(--cream);
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .carousel-btn:hover { background: var(--sage); color: #0F1A0F; }
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.6rem;
+    }
+    .dot-ind {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-sub);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .dot-ind.active { background: var(--sage); transform: scale(1.25); }
+
+    /* ============================================================
+       SECCIÓN CIERRE
+       ============================================================ */
+    #cierre { background: var(--bg-base); }
+    #cierre .copy { max-width: 800px; }
+    #cierre .copy p { color: var(--text-sec); }
+    #cierre .opt {
+      color: var(--text-main);
+      border-left: 3px solid var(--sage);
+      padding-left: 1.2rem;
+    }
+    #cierre .opt.action { border-left-color: var(--gold); }
+    #cierre .opt strong { color: var(--cream); }
+
+    /* ============================================================
+       FAQ (estilo claro, distinto a módulos)
+       ============================================================ */
+    #faq { background: var(--bg-alt); }
+    .faq-wrap { max-width: 820px; margin: 0 auto; }
+    .faq-item {
+      background: var(--cream-soft);
+      border-bottom: 2px solid var(--sage);
+      border-radius: 8px;
+      margin-bottom: 0.9rem;
+      overflow: hidden;
+    }
+    .faq-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.08rem;
+      text-align: left;
+      padding: 1.3rem 1.5rem;
+      cursor: pointer;
+    }
+    .faq-arrow { transition: transform 0.4s ease; color: var(--sage-mid); flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-body p {
+      color: var(--text-dark);
+      padding: 0 1.5rem 1.4rem;
+      margin: 0;
+    }
+
+    /* ============================================================
+       SOBRE TATIANA (sección clara)
+       ============================================================ */
+    #tatiana {
+      background: var(--cream);
+      color: var(--text-dark);
+    }
+    #tatiana .section-label { color: var(--sage-mid); }
+    #tatiana h2 { color: var(--text-dark); }
+    .tatiana-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .tatiana-photo img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px -20px rgba(26,46,26,0.4);
+    }
+    .tatiana-badge {
+      display: inline-block;
+      background: var(--bg-base);
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      margin-bottom: 1.6rem;
+    }
+    .tatiana-purpose {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 1.6rem;
+    }
+    #tatiana p { color: var(--text-dark); }
+
+    /* ============================================================
+       BARRA PROGRESO + CALENDARIO
+       ============================================================ */
+    #calendario { background: var(--bg-base); }
+    .progress-block { max-width: 760px; margin: 0 auto 2.5rem; text-align: center; }
+    .progress-bar-outer {
+      width: 100%;
+      height: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-sub);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--sage-mid), var(--sage), var(--sage-light));
+      border-radius: 20px;
+      transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .progress-bar-inner.fill { width: 90%; }
+    .progress-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .progress-desc { color: var(--text-sec); max-width: 700px; margin: 0 auto; }
+    .calendly-inline-widget { margin-top: 1.5rem; border-radius: 10px; overflow: hidden; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    #footer {
+      background: var(--bg-footer);
+      padding: 4rem 0 2.5rem;
+      border-top: 1px solid var(--border-sub);
+    }
+    .footer-brand {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-sec);
+      font-size: 0.95rem;
+    }
+    .footer-links a { transition: color 0.3s ease; }
+    .footer-links a:hover { color: var(--sage); }
+    .footer-contact { color: var(--text-sec); font-size: 0.95rem; }
+    .footer-copy {
+      color: var(--sage-mid);
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--border-sub);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 860px) {
+      .tatiana-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .tatiana-photo { max-width: 360px; }
+      .nav-brand { font-size: 1.1rem; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 1rem; }
+      .carousel-btn.prev { left: 4px; }
+      .carousel-btn.next { right: 4px; }
+      .nav-cta-text-long { display: none; }
+      #cursor-dot { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-stagger, .reveal, .problem-item { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de progreso de lectura -->
+  <div id="reading-progress"></div>
+
+  <!-- Cursor personalizado -->
+  <div id="cursor-dot"></div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand">Tatiana Caruso<span class="dot">.</span></a>
+      <a href="#calendario" class="btn btn-sm">
+        <i class="fa-regular fa-calendar-check"></i>
+        Agendar sesión de admisión
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header id="hero">
+    <canvas id="neural-canvas"></canvas>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-label reveal-stagger d-03">Mujeres intensas, analíticas y comprometidas con su crecimiento</span>
+        <h1 class="reveal-stagger d-06">Aprendé a calmarte sin apagar tu sensibilidad.</h1>
+        <p class="hero-sub reveal-stagger d-10">
+          Lográ claridad mental, regulá tus desbordes emocionales y poné límites firmes en
+          26 semanas con el Taller SER. Entrenamiento práctico y progresivo basado en evidencia
+          científica (Habilidades DBT) para tomar el control de tu conducta cotidiana antes de
+          que la emoción te domine.
+        </p>
+        <p class="hero-subsub reveal-stagger d-10">
+          Un método estructurado paso a paso que te enseña de forma exacta qué hacer en el
+          momento crítico del desborde, permitiéndote cuidar tus vínculos sin caer en el
+          autoabandonamiento.
+        </p>
+        <p class="hero-invite reveal-stagger d-13">
+          Si querés dejar de vivir estresada y recuperar tu estabilidad, seguí leyendo.
+        </p>
+        <a href="#calendario" class="btn reveal-stagger scale d-16">
+          Quiero agendar mi Sesión de Admisión
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PROBLEMAS
+       ============================================================ -->
+  <section id="problemas">
+    <span class="deco-number" style="top: -3rem; right: -2rem;">26</span>
+    <div class="container">
+      <span class="section-label reveal">¿Te suena familiar?</span>
+      <p class="problem-intro reveal">
+        En instantes te cuento más detalles, pero antes decime si algo de esto resuena con vos...
+      </p>
+      <ul class="problem-list">
+        <li class="problem-item">
+          Reconocés perfectamente tus patrones a nivel intelectual, pero fallás en el cómo
+          actuar en el momento crítico en que la emoción sube.
+        </li>
+        <li class="problem-item">
+          Sentís un miedo profundo a ser considerada demasiado intensa por tu entorno social
+          o afectivo.
+        </li>
+        <li class="problem-item">
+          Vivís cansada de sobrepensar conversaciones pasadas, decisiones o dinámicas
+          vinculares, cargándote de una tensión física e interna constante.
+        </li>
+        <li class="problem-item">
+          Te da pánico que un desborde emocional o una reacción impulsiva dañe de forma
+          irreversible tus vínculos más valiosos.
+        </li>
+        <li class="problem-item">
+          Te cuesta muchísimo decir que no o poner límites firmes por miedo a que el otro se
+          aleje o por sentirte culpable o exagerada.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="separator" />
+
+  <!-- ============================================================
+       VEHÍCULO
+       ============================================================ -->
+  <section id="vehiculo">
+    <div class="container">
+      <span class="section-label reveal">El verdadero problema</span>
+      <h2 class="h2 reveal">El problema no es tu intensidad</h2>
+      <div class="copy">
+        <p class="reveal">
+          Porque ninguno de esos es el verdadero problema. El verdadero problema es que no
+          estás implementando metodologías actualizadas: un entrenamiento práctico y progresivo
+          basado en habilidades DBT.
+        </p>
+        <p class="reveal">
+          El error común es creer que el entendimiento teórico de tu historia personal es
+          suficiente para cambiar. Los espacios terapéuticos enfocados solo en hablar e
+          interpretar el pasado te dejan estancada en el análisis.
+        </p>
+        <p class="reveal">
+          Si no entrenás habilidades sistemáticas de regulación en vivo, tus emociones seguirán
+          subiendo y bajando como una montaña rusa. Sentir con intensidad no es un defecto
+          clínico: la oportunidad real radica en entrenar a tu mente para que esa sensibilidad
+          trabaje a tu favor.
+        </p>
+        <p class="reveal" style="margin-top: 2rem;">
+          <a href="#calendario" class="btn">
+            Quiero agendar mi Sesión de Admisión
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="separator" />
+
+  <!-- ============================================================
+       MÓDULOS — ACORDEONES
+       ============================================================ -->
+  <section id="modulos">
+    <span class="deco-number" style="bottom: -4rem; left: -2rem;">4</span>
+    <div class="container">
+      <span class="section-label reveal">El método</span>
+      <h2 class="h2 reveal">Los 4 módulos del Taller SER</h2>
+      <div class="accordion-wrap" style="margin-top: 2.5rem;">
+
+        <div class="acc-module reveal">
+          <button class="acc-head" aria-expanded="false">
+            <span>🧠 Módulo Mindfulness — Conciencia Plena</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <span class="acc-emoji">🧠</span>
+              <p>
+                Aprendé a observar, describir y participar del presente. Desarrollarás la
+                capacidad de pausar conscientemente y reconocer tu mente sabia antes de
+                reaccionar de manera automática.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-module reveal">
+          <button class="acc-head" aria-expanded="false">
+            <span>🛑 Módulo Tolerancia al Malestar</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <span class="acc-emoji">🛑</span>
+              <p>
+                Aprendé de forma exacta qué hacer cuando la emoción sube para atravesar momentos
+                difíciles y crisis agudas sin empeorarlas, implementando la habilidad STOP y la
+                aceptación radical.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-module reveal">
+          <button class="acc-head" aria-expanded="false">
+            <span>📉 Módulo Regulación Emocional</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <span class="acc-emoji">📉</span>
+              <p>
+                Comprendé, nombrá y modificá las respuestas ansiosas, el enojo o la frustración
+                mediante la verificación de hechos y la acción opuesta, reduciendo tu
+                vulnerabilidad al estrés diario.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-module reveal">
+          <button class="acc-head" aria-expanded="false">
+            <span>🤝 Módulo Efectividad Interpersonal</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <span class="acc-emoji">🤝</span>
+              <p>
+                Aprendé a pedir lo que necesitás y a decir que no con asertividad utilizando
+                estrategias científicas como DEAR MAN, AVES y VIDA. Fijá límites firmes y mantené
+                tu autorrespeto sin caer en dinámicas de sumisión o culpa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="separator" />
+
+  <!-- ============================================================
+       PRUEBA SOCIAL — CAROUSEL
+       ============================================================ -->
+  <section id="prueba">
+    <div class="container">
+      <span class="section-label reveal">Resultados reales</span>
+      <h2 class="h2 reveal">Lo que logran nuestras alumnas</h2>
+      <div class="carousel reveal" id="carousel">
+        <button class="carousel-btn prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide"><img src="https://placehold.co/500x300/141F14/7A9E7E?text=Testimonio+1" alt="Testimonio 1" /></div>
+            <div class="carousel-slide"><img src="https://placehold.co/500x300/141F14/7A9E7E?text=Testimonio+2" alt="Testimonio 2" /></div>
+            <div class="carousel-slide"><img src="https://placehold.co/500x300/141F14/7A9E7E?text=Testimonio+3" alt="Testimonio 3" /></div>
+            <div class="carousel-slide"><img src="https://placehold.co/500x300/141F14/7A9E7E?text=Testimonio+4" alt="Testimonio 4" /></div>
+          </div>
+        </div>
+        <button class="carousel-btn next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="separator" />
+
+  <!-- ============================================================
+       CIERRE
+       ============================================================ -->
+  <section id="cierre">
+    <div class="container">
+      <span class="section-label reveal">Tu decisión</span>
+      <h2 class="h2 reveal">Si llegaste hasta acá...</h2>
+      <div class="copy">
+        <p class="reveal">Es porque sabés que hay una forma más inteligente de gestionar lo que sentís.</p>
+        <p class="reveal">Podés elegir entre dos opciones:</p>
+        <p class="opt reveal">
+          <strong>Seguir igual:</strong> Quedarte atrapada en el consumo excesivo de teoría,
+          viviendo estresada y repitiendo patrones impulsivos.
+        </p>
+        <p class="opt action reveal">
+          <strong>Tomar acción:</strong> Empezar hoy a entrenar tus habilidades conductuales y
+          construir una vida en equilibrio donde tu sensibilidad sea tu mayor virtud.
+        </p>
+        <p class="reveal">
+          Esto no es una solución mágica. Es una llamada de selección sin costo donde te
+          aportaremos claridad absoluta. Si estás viendo esta página, aún quedan cupos para las
+          entrevistas de admisión de este mes. Decidí ahora.
+        </p>
+        <p class="reveal" style="margin-top: 2rem;">
+          <a href="#calendario" class="btn">
+            Quiero agendar mi Sesión de Admisión
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="separator" />
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section id="faq">
+    <div class="container">
+      <span class="section-label reveal">Preguntas frecuentes</span>
+      <h2 class="h2 reveal">Resolvé tus dudas</h2>
+      <div class="faq-wrap" style="margin-top: 2.5rem;">
+
+        <div class="faq-item reveal">
+          <button class="faq-head" aria-expanded="false">
+            <span>¿Qué pasa si espero?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Vas a seguir reforzando los mismos bucles de sobrepensamiento y reacciones
+              impulsivas. El desgaste emocional y el daño a tus relaciones se acumulan día a día;
+              postergar tu bienestar solo hace el camino de regreso más largo.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-head" aria-expanded="false">
+            <span>¿Cómo funciona la llamada?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Es una sesión virtual de 30 minutos totalmente enfocada en vos. Analizaremos tus
+              principales desafíos y evaluaremos si el formato grupal del Taller SER es el
+              adecuado para ayudarte.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-head" aria-expanded="false">
+            <span>¿Qué resultados puedo esperar?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              Aprenderás habilidades conductuales basadas en evidencia para frenar los desbordes
+              antes de que ocurran, comunicarte de manera asertiva, fijar límites sin culpa y
+              experimentar una paz mental sólida y duradera.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-head" aria-expanded="false">
+            <span>¿Por qué elegir este programa y no una terapia tradicional?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>
+              A diferencia de las terapias pasivas basadas en hablar e interpretar el pasado, el
+              Taller SER es un entrenamiento psicoeducativo 100% enfocado en la acción. Combina
+              clases teóricas grabadas con encuentros semanales en vivo de práctica supervisada.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE TATIANA (sección clara)
+       ============================================================ -->
+  <section id="tatiana">
+    <span class="deco-number dark" style="top: -2rem; right: -1rem;">SER</span>
+    <div class="container">
+      <span class="section-label reveal">Quién te acompaña</span>
+      <h2 class="h2 reveal">Conocé a Tatiana Caruso</h2>
+      <div class="tatiana-grid" style="margin-top: 2.5rem;">
+        <div class="tatiana-photo reveal">
+          <img src="https://placehold.co/420x520/7A9E7E/F5EDD8?text=Tatiana+Caruso" alt="Tatiana Caruso" />
+        </div>
+        <div class="reveal">
+          <span class="tatiana-badge">Especialista en DBT · Creadora del Taller SER</span>
+          <p class="tatiana-purpose">
+            Desarrollar el método más práctico y estructurado para ayudar a mujeres intensas a
+            regular su conducta de forma estable y saludable, transformando la sensibilidad en
+            su mayor aliada.
+          </p>
+          <p>
+            Especialista en Habilidades Emocionales basadas en evidencia científica (DBT).
+            Creadora del Taller SER, un ecosistema de aprendizaje activo que acompaña a las
+            personas a traducir el entendimiento teórico en control conductual efectivo para el
+            día a día.
+          </p>
+          <a href="#calendario" class="btn btn-invert" style="margin-top: 1rem;">
+            Quiero agendar mi Sesión de Admisión
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BARRA PROGRESO + CALENDARIO
+       ============================================================ -->
+  <section id="calendario">
+    <div class="container">
+      <div class="progress-block reveal">
+        <div class="progress-bar-outer">
+          <div class="progress-bar-inner" id="admission-bar"></div>
+        </div>
+        <h2 class="progress-title">Estás a un paso de tu Sesión de Admisión...</h2>
+        <p class="progress-desc">
+          En esta llamada gratuita de 30 minutos vamos a analizar tu caso para darte claridad
+          sobre qué está fallando en tu regulación emocional, estructurar tu plan de acción y
+          definir si cumplís con los requisitos para ingresar al Taller SER.
+        </p>
+      </div>
+
+      <!-- Calendly embed inline -->
+      <div class="calendly-inline-widget"
+        data-url="https://calendly.com/TU-USUARIO-AQUI"
+        style="min-width:320px;height:700px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-brand">Tatiana Caruso <span style="color: var(--sage); font-weight: 400;">| Gestión Emocional</span></div>
+      <p class="footer-contact">
+        <i class="fa-regular fa-envelope" style="color: var(--sage);"></i>
+        Contacto: <a href="mailto:soporte@tatianacaruso.com">soporte@tatianacaruso.com</a>
+      </p>
+      <div class="footer-links">
+        <a href="#">Políticas de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Descargo de Responsabilidad</a>
+      </div>
+      <p class="footer-copy">© 2026 Tatiana Caruso. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CALENDLY SCRIPT + REDIRECCIÓN
+       ============================================================ -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    window.addEventListener('message', function (e) {
+      if (e.origin === 'https://calendly.com' &&
+          e.data.event &&
+          e.data.event.indexOf('calendly.event_scheduled') === 0) {
+        window.location.href = '/gracias.html';
+      }
+    });
+  </script>
+
+  <!-- ============================================================
+       JAVASCRIPT PRINCIPAL
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* --------------------------------------------------------
+         CANVAS NEURONAS
+         -------------------------------------------------------- */
+      var canvas = document.getElementById('neural-canvas');
+      var ctx = canvas.getContext('2d');
+      var nodes = [];
+      var W, H, dpr;
+      var THRESHOLD = 150;
+
+      function isMobile() { return window.innerWidth < 768; }
+
+      function nodeCount() {
+        var area = window.innerWidth * window.innerHeight;
+        var base = Math.floor(area / 14000);
+        base = Math.max(40, Math.min(base, 130));
+        return isMobile() ? Math.floor(base / 2) : base;
+      }
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+
+      function initNodes() {
+        nodes = [];
+        var count = nodeCount();
+        for (var i = 0; i < count; i++) {
+          nodes.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: rand(-0.25, 0.25),
+            vy: rand(-0.25, 0.25),
+            r: rand(1.2, 2.6),
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: rand(0.01, 0.03),
+            canPulse: Math.random() > 0.55
+          });
+        }
+      }
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        var rect = canvas.getBoundingClientRect();
+        W = rect.width;
+        H = rect.height;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        initNodes();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // Líneas de conexión
+        for (var i = 0; i < nodes.length; i++) {
+          for (var j = i + 1; j < nodes.length; j++) {
+            var a = nodes[i], b = nodes[j];
+            var dx = a.x - b.x, dy = a.y - b.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < THRESHOLD) {
+              var alpha = (1 - dist / THRESHOLD) * 0.15;
+              ctx.strokeStyle = 'rgba(122,158,126,' + alpha + ')';
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Nodos
+        for (var k = 0; k < nodes.length; k++) {
+          var n = nodes[k];
+          // mover
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x <= 0 || n.x >= W) n.vx *= -1;
+          if (n.y <= 0 || n.y >= H) n.vy *= -1;
+          n.x = Math.max(0, Math.min(W, n.x));
+          n.y = Math.max(0, Math.min(H, n.y));
+
+          // pulso
+          var scale = 1;
+          if (n.canPulse) {
+            n.pulse += n.pulseSpeed;
+            scale = 1 + Math.sin(n.pulse) * 0.5;
+          }
+
+          ctx.fillStyle = 'rgba(122,158,126,0.6)';
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r * scale, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      if (canvas) {
+        resize();
+        window.addEventListener('resize', resize);
+        if (!reduceMotion) {
+          requestAnimationFrame(draw);
+        } else {
+          draw(); // dibujo estático
+        }
+      }
+
+      /* --------------------------------------------------------
+         NAVBAR SCROLL + BARRA PROGRESO LECTURA
+         -------------------------------------------------------- */
+      var navbar = document.getElementById('navbar');
+      var progressBar = document.getElementById('reading-progress');
+
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        if (y > 40) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docH > 0 ? (y / docH) * 100 : 0;
+        progressBar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* --------------------------------------------------------
+         CURSOR PERSONALIZADO CON LAG
+         -------------------------------------------------------- */
+      var cursor = document.getElementById('cursor-dot');
+      var mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+      var curX = mouseX, curY = mouseY;
+
+      if (cursor && !('ontouchstart' in window)) {
+        document.addEventListener('mousemove', function (e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+        (function lag() {
+          curX += (mouseX - curX) * 0.18;
+          curY += (mouseY - curY) * 0.18;
+          cursor.style.left = curX + 'px';
+          cursor.style.top = curY + 'px';
+          requestAnimationFrame(lag);
+        })();
+
+        // expandir sobre elementos interactivos
+        document.querySelectorAll('a, button').forEach(function (el) {
+          el.addEventListener('mouseenter', function () {
+            cursor.style.width = '26px';
+            cursor.style.height = '26px';
+            cursor.style.background = 'rgba(212,168,83,0.5)';
+          });
+          el.addEventListener('mouseleave', function () {
+            cursor.style.width = '10px';
+            cursor.style.height = '10px';
+            cursor.style.background = '#7A9E7E';
+          });
+        });
+      }
+
+      /* --------------------------------------------------------
+         SCROLL REVEAL (Intersection Observer)
+         -------------------------------------------------------- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+      /* Problemas: reveal escalonado translateX */
+      var problemItems = document.querySelectorAll('.problem-item');
+      var pio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var idx = parseInt(entry.target.dataset.idx, 10) || 0;
+            entry.target.style.transitionDelay = (idx * 0.13) + 's';
+            entry.target.classList.add('visible');
+            pio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      problemItems.forEach(function (el, i) { el.dataset.idx = i; pio.observe(el); });
+
+      /* --------------------------------------------------------
+         ACORDEONES MÓDULOS (solo uno abierto)
+         -------------------------------------------------------- */
+      var modules = document.querySelectorAll('.acc-module');
+      modules.forEach(function (mod) {
+        var head = mod.querySelector('.acc-head');
+        var body = mod.querySelector('.acc-body');
+        head.addEventListener('click', function () {
+          var isOpen = mod.classList.contains('open');
+          // cerrar todos
+          modules.forEach(function (m) {
+            m.classList.remove('open');
+            m.querySelector('.acc-body').style.maxHeight = null;
+            m.querySelector('.acc-head').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            mod.classList.add('open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+            head.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* --------------------------------------------------------
+         FAQ (acordeón simple, varios pueden estar abiertos)
+         -------------------------------------------------------- */
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function (item) {
+        var head = item.querySelector('.faq-head');
+        var body = item.querySelector('.faq-body');
+        head.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          if (isOpen) {
+            item.classList.remove('open');
+            body.style.maxHeight = null;
+            head.setAttribute('aria-expanded', 'false');
+          } else {
+            item.classList.add('open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+            head.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* --------------------------------------------------------
+         CAROUSEL PRUEBA SOCIAL
+         -------------------------------------------------------- */
+      var track = document.getElementById('carousel-track');
+      var dotsWrap = document.getElementById('carousel-dots');
+      if (track) {
+        var slides = track.querySelectorAll('.carousel-slide');
+        var current = 0;
+        var total = slides.length;
+
+        for (var s = 0; s < total; s++) {
+          var d = document.createElement('button');
+          d.className = 'dot-ind' + (s === 0 ? ' active' : '');
+          d.setAttribute('aria-label', 'Ir al testimonio ' + (s + 1));
+          (function (idx) {
+            d.addEventListener('click', function () { goTo(idx); });
+          })(s);
+          dotsWrap.appendChild(d);
+        }
+
+        function goTo(idx) {
+          current = (idx + total) % total;
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+          var dots = dotsWrap.querySelectorAll('.dot-ind');
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === current);
+          });
+        }
+
+        document.querySelector('.carousel-btn.next').addEventListener('click', function () { goTo(current + 1); });
+        document.querySelector('.carousel-btn.prev').addEventListener('click', function () { goTo(current - 1); });
+
+        // autoplay suave
+        if (!reduceMotion) {
+          setInterval(function () { goTo(current + 1); }, 6000);
+        }
+      }
+
+      /* --------------------------------------------------------
+         BARRA DE ADMISIÓN 90% al entrar en viewport
+         -------------------------------------------------------- */
+      var admissionBar = document.getElementById('admission-bar');
+      if (admissionBar) {
+        var bio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              admissionBar.classList.add('fill');
+              bio.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        bio.observe(admissionBar);
+      }
+
+    })();
+  </script>
+</body>
+</html>
